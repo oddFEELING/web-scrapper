@@ -86,7 +86,8 @@ const Search__Object = {
 
 replace `## Selector` with a selector e.g `div.sc-fKFxtB ivoVis > h3`
 
-> :info: This means to select all `h3` in any `div` element with the classname of `sc-fKFxtB ivoVis`
+| :triangular_flag_on_post: This means to select all `h3` in any `div` element with the classname of `sc-fKFxtB ivoVis` |
+| --------------------------------------------------------------------------------------------------------------------- |
 
 ### Example:
 
