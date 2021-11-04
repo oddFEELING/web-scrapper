@@ -52,22 +52,27 @@ The entire Scrapper is written in JavaScript
 
 ## 🎈 Usage <a name = "usage"></a>
 
-Clone repository and install packages:
+1. Clone repository and install packages:
 
 ```
 npm install
 ```
 
-This installs puppeteer and convert-array-to-csv as dependencies.
+2. Navigate to the `Search_Object` object and enter initial values
 
-Navigate to the root folder of the cloned repositoryand create folder
-
-> `Scrapped__Data`
-
-Then navigate to the newly created folder or use terminal
+### **Example**
 
 ```
-cd Scrapped__Data
+const Search__Object = {
+  data__source: '',
+  source__url: '',
+  total__pages: 0,
+  Scrape__Gui: '$$bolean',
+  JSON__name: '$$Name__json',
+  JSON__path: path.resolve(__dirname, './Scrapped__Data/JSON__files'),
+  CSV__name: '$$Name__csv',
+  CSV__path: path.resolve(__dirname, './Scrapped__Data/CSV__files'),
+};
 ```
 
 ### Example:

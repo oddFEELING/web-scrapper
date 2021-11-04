@@ -29,6 +29,16 @@ const Search__Object = {
 };
 
 //--------------------------------------->
+//-->  create directories to store JSON and CSV files
+//--------------------------------------->
+fs.mkdir(path.resolve(__dirname, '/Scrapped_Data/JSON__files'), (err) =>
+  console.warn(err)
+);
+fs.mkdir(path.resolve(__dirname, './Scrapped__Data/CSV__files'), (err) =>
+  console.warn(err)
+);
+
+//--------------------------------------->
 //-->  File converter and Handler
 //--------------------------------------->
 async function handleFiles(Object__array) {
