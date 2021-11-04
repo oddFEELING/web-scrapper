@@ -1,3 +1,3 @@
-#Javascript Web scrapper
+# Javascript Web scrapper
 
 Author: oddFEELING
