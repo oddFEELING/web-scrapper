@@ -63,16 +63,23 @@ npm install
 ### **Example**
 
 ```
-    const Search__Object = {
-    data__source: '',
-    source__url: '',
-    total__pages: 0,
-    Scrape__Gui: '$$bolean',
-    JSON__name: '$$Name__json',
-    JSON__path: path.resolve(__dirname, './Scrapped__Data/JSON__files'),
-    CSV__name: '$$Name__csv',
-    CSV__path: path.resolve(__dirname, './Scrapped__Data/CSV__files'),
-    };
+const Search__Object = {
+  data__source: 'oddFEELING PortFolio',
+  source__url: 'https://odd-portfolio.web.app/',
+  total__pages: 2,
+  Scrape__cli: 'false',
+  JSON__name: 'Links__json',
+  JSON__path: path.resolve(__dirname, './Scrapped__Data/JSON__files'),
+  CSV__name: 'Links__csv',
+  CSV__path: path.resolve(__dirname, './Scrapped__Data/CSV__files'),
+};
+```
+
+3. Naviget to the item selector to input an element selector
+
+```
+    //-->  select main query element
+            let items = document.querySelectorAll(`## Selector`);
 ```
 
 ### Example:
