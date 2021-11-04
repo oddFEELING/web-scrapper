@@ -63,6 +63,7 @@ npm install
 ### **Example**
 
 ```
+
 const Search__Object = {
   data__source: 'oddFEELING PortFolio',
   source__url: 'https://odd-portfolio.web.app/',
@@ -78,9 +79,14 @@ const Search__Object = {
 3. Naviget to the item selector to input an element selector
 
 ```
+
     //-->  select main query element
             let items = document.querySelectorAll(`## Selector`);
 ```
+
+replace `## Selector` with a selector e.g `div.sc-fKFxtB ivoVis > h3`
+
+> :info: This means to select all `h3` in any `div` element with the classname of `sc-fKFxtB ivoVis`
 
 ### Example:
 
