@@ -21,6 +21,7 @@ const Search__Object = {
   data__source: '',
   source__url: '',
   total__pages: 0,
+  Scrape__Gui: '$$bolean',
   JSON__name: '$$Name__json',
   JSON__path: path.resolve(__dirname, './Scrapped__Data/JSON__files'),
   CSV__name: '$$Name__csv',
@@ -64,7 +65,7 @@ function handleScrape(url, pagesToScrape) {
 
       //-->  create browser instance
       const browser = await puppeteer.launch({
-        headless: false,
+        headless: Search__Object.Scrape__Gui,
         ignoreHTTPSErrors: true,
         defaultViewport: {
           width: 1000,

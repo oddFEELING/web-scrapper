@@ -9,7 +9,7 @@
 
 [![Dependencies](https://img.shields.io/badge/dependencies-up%20to%20date-blue.svg)]()
 [![Platform](https://img.shields.io/badge/platform-git-orange.svg)](https://www.reddit.com/user/Wordbook_Bot)
-[![GitHub Issues](https://img.shields.io/badge/issues%20open-0-yellowgreen.svg)](https://github.com/kylelobo/The-Documentation-Compendium/issues)
+[![GitHub Issues](https://img.shields.io/badge/issues-0%20open-yellowgreen.svg)](https://github.com/kylelobo/The-Documentation-Compendium/issues)
 [![GitHub Pull Requests](https://img.shields.io/badge/pull%20requests-0%20open-yellowgreen.svg)](https://github.com/kylelobo/The-Documentation-Compendium/pulls)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
 
@@ -28,12 +28,9 @@
 - [How it works](#working)
 - [Usage](#usage)
 - [Getting Started](#getting_started)
-- [Deploying your own bot](#deployment)
 - [Built Using](#built_using)
-- [TODO](../TODO.md)
 - [Contributing](../CONTRIBUTING.md)
 - [Authors](#authors)
-- [Acknowledgments](#acknowledgement)
 
 ## 🧐 About <a name = "about"></a>
 
@@ -45,9 +42,9 @@ Web crawler for scraping web pages
 
 ## 💭 How it works <a name = "working"></a>
 
-The bot first extracts the word from the comment and then fetches word definitions, part of speech, example and source from the Oxford Dictionary API.
+Scraper first takes in a **_Search Object_** which sets a level of needed criterias for the scrape to be processed and the files to be saved as **_CSV_** and **_JSON_**.
 
-If the word does not exist in the Oxford Dictionary, the Oxford API then returns a 404 response upon which the bot then tries to fetch results form the Urban Dictionary API.
+Async function to handle scrape is called drawing arguments from the **_Search Object_**.
 
 The bot uses the Pushshift API to fetch comments, PRAW module to reply to comments and Heroku as a server.
 
@@ -118,25 +115,14 @@ until finished
 
 End with an example of getting some data out of the system or using it for a little demo.
 
-## 🚀 Deploying your own bot <a name = "deployment"></a>
-
-To see an example project on how to deploy your bot, please see my own configuration:
-
-- **Heroku**: https://github.com/kylelobo/Reddit-Bot#deploying_the_bot
-
 ## ⛏️ Built Using <a name = "built_using"></a>
 
-- [PRAW](https://praw.readthedocs.io/en/latest/) - Python Reddit API Wrapper
-- [Heroku](https://www.heroku.com/) - SaaS hosting platform
+- [NODE](https://nodejs.org/en/) - Yep! **Node**...... not python
+- [PUPPETEER](https://pptr.dev/) - Headless 3rd party browser emulator
+- [CONVERT-ARRAY-TO-CSV](https://www.npmjs.com/package/convert-array-to-csv) - Npm package
 
 ## ✍️ Authors <a name = "authors"></a>
 
-- [@kylelobo](https://github.com/kylelobo) - Idea & Initial work
+- [@oddFEELING](https://github.com/oddFEELING) - Author and Owner
 
 See also the list of [contributors](https://github.com/kylelobo/The-Documentation-Compendium/contributors) who participated in this project.
-
-## 🎉 Acknowledgements <a name = "acknowledgement"></a>
-
-- Hat tip to anyone whose code was used
-- Inspiration
-- References
