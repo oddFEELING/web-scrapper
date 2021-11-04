@@ -135,7 +135,8 @@ replace `## Selector` with a selector e.g `div.sc-fKFxtB ivoVis > h3`
 | :triangular_flag_on_post: This waits for all `divs` to render before continuing |
 | ------------------------------------------------------------------------------- |
 
-6. **_Your're set!!_**
+6. **_Your're set!!_**.
+
    Navigate to your terminal or press `cntrl` + `shift` + `~`
    then run code using
 
