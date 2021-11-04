@@ -17,25 +17,29 @@ const path = require('path');
 */
 
 const Search__Object = {
-  data__source: '',
-  source__url: '',
-  total__pages: 0,
-  Scrape__cli: '$$bolean',
-  JSON__name: '$$Name__json',
+  data__source: 'Sun',
+  source__url: 'https://www.sunnewsonline.com/?s=ransom',
+  total__pages: 5,
+  Scrape__cli: 'false',
+  JSON__name: 'Unemployment__json',
   JSON__path: path.resolve(__dirname, './Scrapped__Data/JSON__files'),
-  CSV__name: '$$Name__csv',
+  CSV__name: 'Unemployment__csv',
   CSV__path: path.resolve(__dirname, './Scrapped__Data/CSV__files'),
 };
 
 //--------------------------------------->
 //-->  create directories to store JSON and CSV files
-//--------------------------------------->
-fs.mkdir(path.resolve(__dirname, '/Scrapped_Data/JSON__files'), (err) =>
-  console.warn(err)
-);
-fs.mkdir(path.resolve(__dirname, './Scrapped__Data/CSV__files'), (err) =>
-  console.warn(err)
-);
+// //--------------------------------------->
+const dir__1 = './Scrapped__Data/JSON__files';
+const dir__2 = './Scrapped__Data/CSV__files';
+
+if (!fs.existsSync(dir__1)) {
+  fs.mkdirSync(dir__1, { recursive: true }, (err) => console.warn(err));
+}
+
+if (!fs.existsSync(dir__2)) {
+  fs.mkdirSync(dir__2, { recursive: true }, (err) => console.warn(err));
+}
 
 //--------------------------------------->
 //-->  File converter and Handler
@@ -74,7 +78,7 @@ function handleScrape(url, pagesToScrape) {
 
       //-->  create browser instance
       const browser = await puppeteer.launch({
-        headless: Search__Object.Scrape__cli,
+        headless: false,
         ignoreHTTPSErrors: true,
         defaultViewport: {
           width: 1000,
@@ -96,15 +100,14 @@ function handleScrape(url, pagesToScrape) {
             let results = [];
 
             //-->  select main query element
-            let items = document.querySelectorAll(`## Selector`);
+            let items = document.querySelectorAll('h3.jeg_post_title > a');
 
             //-->  loop through items and add to result
             items.forEach((item) => {
               results.push({
-                source: ``, //-->  ##Source
-                /* 
-                [-### ELEMENT ATTR ###-]
-               */
+                source: `Sun`, //-->  ##Source
+                url: item.getAttribute('href'),
+                content: item.textContent,
               });
             });
             return results;
@@ -114,8 +117,9 @@ function handleScrape(url, pagesToScrape) {
           //-->  puppeteer auto click next button (pagination)
           if (currentPage < pagesToScrape) {
             await Promise.all([
-              await page.click(`## Paginator`),
-              await page.waitForSelector(`## selector`),
+              // await page.waitForSelector('h3'),
+              await page.click('a.page_nav.next'),
+              await page.waitForSelector('a'),
             ]);
           }
           //-->  increment current page

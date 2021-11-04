@@ -54,7 +54,7 @@ The entire Scrapper is written in JavaScript
 
 1. Clone repository and install packages:
 
-```
+```javascript
 npm install
 ```
 
@@ -62,7 +62,7 @@ npm install
 
 ### **Example**
 
-```
+```javascript
 const Search__Object = {
   data__source: 'oddFEELING PortFolio',
   source__url: 'https://odd-portfolio.web.app/',
@@ -77,9 +77,9 @@ const Search__Object = {
 
 3. Naviget to the item selector to input an element selector
 
-```
-    //-->  select main query element
-            let items = document.querySelectorAll(`## Selector`);
+```javascript
+//-->  select main query element
+let items = document.querySelectorAll(`## Selector`);
 ```
 
 replace `## Selector` with a selector e.g `div.sc-fKFxtB ivoVis > h3`
@@ -92,15 +92,15 @@ replace `## Selector` with a selector e.g `div.sc-fKFxtB ivoVis > h3`
 
 ### **Example**
 
-```
+```javascript
 //-->  loop through items and add to result
-            items.forEach((item) => {
-              results.push({
-                source: `oddFEELING portfolio`, //-->  ##Source
-                url: item.getAttribute('href'),
-                content: item.textContent
-              });
-            });
+items.forEach((item) => {
+  results.push({
+    source: `oddFEELING portfolio`, //-->  ##Source
+    url: item.getAttribute('href'),
+    content: item.textContent,
+  });
+});
 ```
 
 | :triangular_flag_on_post: This gets the `href` of the element and `textContent` |
@@ -109,28 +109,26 @@ replace `## Selector` with a selector e.g `div.sc-fKFxtB ivoVis > h3`
 5. If the site that is to be scraped is paginated (makes an API call and renders items into different pages) `Puppeteer` would need to auto click and navigate the page.
    Specify the element to click by setting its selector in the `page.click(## Paginator)`
 
-   ```
-          //-->  puppeteer auto click next button (pagination)
-          if (currentPage < pagesToScrape) {
-            await Promise.all([
-              await page.click(`div.sc-fKFxtB ivoVis > h3`),
-              await page.waitForSelector(`## selector`),
-            ]);
-          }
-
+   ```javascript
+   //-->  puppeteer auto click next button (pagination)
+   if (currentPage < pagesToScrape) {
+     await Promise.all([
+       await page.click(`div.sc-fKFxtB ivoVis > h3`),
+       await page.waitForSelector(`## selector`),
+     ]);
+   }
    ```
 
    THen set an element to wait for before continuing the scrape process in the `page.waitForSelector( ## selector)`
 
-   ```
-          //-->  puppeteer auto click next button (pagination)
-          if (currentPage < pagesToScrape) {
-            await Promise.all([
-              await page.click(`div.sc-fKFxtB ivoVis > h3`),
-              await page.waitForSelector(`div`),
-            ]);
-          }
-
+   ```javascript
+   //-->  puppeteer auto click next button (pagination)
+   if (currentPage < pagesToScrape) {
+     await Promise.all([
+       await page.click(`div.sc-fKFxtB ivoVis > h3`),
+       await page.waitForSelector(`div`),
+     ]);
+   }
    ```
 
 | :triangular_flag_on_post: This waits for all `divs` to render before continuing |
@@ -141,7 +139,7 @@ replace `## Selector` with a selector e.g `div.sc-fKFxtB ivoVis > h3`
    Navigate to your terminal or press `cntrl` + `shift` + `~`
    then run code using
 
-```
+```javascript
 node scraper.js
 ```
 
