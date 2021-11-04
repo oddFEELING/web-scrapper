@@ -27,6 +27,7 @@
 - [Demo / Working](#demo)
 - [How it works](#working)
 - [Usage](#usage)
+- [All Options](#Options)
 - [Built Using](#built_using)
 - [Contributing](../CONTRIBUTING.md)
 - [Author](#author)
@@ -143,6 +144,16 @@ replace `## Selector` with a selector e.g `div.sc-fKFxtB ivoVis > h3`
 ```
 node scraper.js
 ```
+
+## 📦 Options <a name = "options"></a>
+
+Options to be filled
+
+> - ` ## Selector` --> element to query
+> - `## Paginator `--> element to click for page integration
+> - `## source `--> source of data
+> - `$$ Name` --> Names of file given to written files
+> - `$$ boolean `--> true or false
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 

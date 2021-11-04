@@ -13,7 +13,6 @@ const path = require('path');
     ## Selector --> element to query
     ## Paginator --> element to click for page integration
     ## source --> source of data
-    lll
     $$ Name --> Names of file given to written files
 */
 
