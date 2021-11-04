@@ -63,7 +63,6 @@ npm install
 ### **Example**
 
 ```
-
 const Search__Object = {
   data__source: 'oddFEELING PortFolio',
   source__url: 'https://odd-portfolio.web.app/',
@@ -79,15 +78,14 @@ const Search__Object = {
 3. Naviget to the item selector to input an element selector
 
 ```
-
     //-->  select main query element
             let items = document.querySelectorAll(`## Selector`);
 ```
 
 replace `## Selector` with a selector e.g `div.sc-fKFxtB ivoVis > h3`
 
-| :triangular_flag_on_post: This means to select all `h3` in any `div` element with the classname of `sc-fKFxtB ivoVis` |
-| --------------------------------------------------------------------------------------------------------------------- |
+| :triangular_flag_on_post: This selects all `h3` in any `div` element with the classname of `sc-fKFxtB ivoVis` |
+| ------------------------------------------------------------------------------------------------------------- |
 
 4. Navigate to the loop that pushes an object to the finl result then enter the values that should be extracted from the element.
    The attributes are taken from the `item` object
@@ -104,6 +102,23 @@ replace `## Selector` with a selector e.g `div.sc-fKFxtB ivoVis > h3`
               });
             });
 ```
+
+| :triangular_flag_on_post: This gets the `href` of the element and `textCOntent` |
+| ------------------------------------------------------------------------------- |
+
+5. If the site that is to be scraped is paginated (makes an API call and renders items into different pages) `Puppeteer` would need to auto click and navigate the page.
+   Specify the element to click by setting its selector in the `page.click(## Paginator)`
+   ````
+          //-->  puppeteer auto click next button (pagination)
+          if (currentPage < pagesToScrape) {
+            await Promise.all([
+              await page.click(`## Paginator`),
+              await page.waitForSelector(`## selector`),
+            ]);
+          }
+          ```
+
+   ````
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 
