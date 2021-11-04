@@ -30,7 +30,7 @@
 - [Getting Started](#getting_started)
 - [Built Using](#built_using)
 - [Contributing](../CONTRIBUTING.md)
-- [Authors](#authors)
+- [Author](#author)
 
 ## 🧐 About <a name = "about"></a>
 
@@ -42,17 +42,17 @@ Web crawler for scraping web pages
 
 ## 💭 How it works <a name = "working"></a>
 
-Scraper first takes in a **_Search Object_** which sets a level of needed criterias for the scrape to be processed and the files to be saved as **_CSV_** and **_JSON_**.
+An Object **_Search Object_** is initialized which sets a level of needed criterias for the scrape to be processed and also for the files to be saved as **_CSV_** and **_JSON_**.
 
-Async function to handle scrape is called drawing arguments from the **_Search Object_**.
+Async function to handle scrape is called drawing arguments from the **_Search Object_**,then the browser(chromium) is is launched and navigates to the given url.
 
-The bot uses the Pushshift API to fetch comments, PRAW module to reply to comments and Heroku as a server.
+If the Pages to be scraped exceeds 1 page then puppeteer emulates clicks to navigate the pages and store new scapped data in an array of before returning
 
-The entire bot is written in Python 3.6
+The entire Scrapper is written in JavaScript
 
 ## 🎈 Usage <a name = "usage"></a>
 
-To use the Scraper, clone repository and install packages with:
+Clone repository and install packages:
 
 ```
 npm install
@@ -60,7 +60,14 @@ npm install
 
 This installs puppeteer and convert-array-to-csv as dependencies.
 
-The bot will then give you the Oxford Dictionary (or Urban Dictionary; if the word does not exist in the Oxford Dictionary) definition of the word as a comment reply.
+Navigate to the root folder of the cloned repositoryand create folder
+
+> Scrapped\_\_Data
+> Then navigate to the newly created folder or use terminal
+
+```
+cd Scrapped__Data
+```
 
 ### Example:
 
@@ -121,8 +128,8 @@ End with an example of getting some data out of the system or using it for a lit
 - [PUPPETEER](https://pptr.dev/) - Headless 3rd party browser emulator
 - [CONVERT-ARRAY-TO-CSV](https://www.npmjs.com/package/convert-array-to-csv) - Npm package
 
-## ✍️ Authors <a name = "authors"></a>
+## ✍️ Author <a name = "author"></a>
 
 - [@oddFEELING](https://github.com/oddFEELING) - Author and Owner
 
-See also the list of [contributors](https://github.com/kylelobo/The-Documentation-Compendium/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/oddFEELING/web-scrapper/graphs/contributors) who participated in this project.
