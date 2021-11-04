@@ -55,13 +55,13 @@ The entire bot is written in Python 3.6
 
 ## 🎈 Usage <a name = "usage"></a>
 
-To use the bot, type:
+To use the Scraper, clone repository and install packages with:
 
 ```
-!dict word
+npm install
 ```
 
-The first part, i.e. "!dict" **is not** case sensitive.
+This installs puppeteer and convert-array-to-csv as dependencies.
 
 The bot will then give you the Oxford Dictionary (or Urban Dictionary; if the word does not exist in the Oxford Dictionary) definition of the word as a comment reply.
 
