@@ -62,8 +62,9 @@ This installs puppeteer and convert-array-to-csv as dependencies.
 
 Navigate to the root folder of the cloned repositoryand create folder
 
-> Scrapped\_\_Data
-> Then navigate to the newly created folder or use terminal
+> `Scrapped__Data`
+
+Then navigate to the newly created folder or use terminal
 
 ```
 cd Scrapped__Data
