@@ -10,18 +10,19 @@ const path = require('path');
 
 /*  Dynamic loading of some object properties broke puppeteer
     so These properties will be managed manually 
-    ##selector --> element to query
-    ##Paginator --> element to click for page integration
-    ##source --> source of data
+    ## Selector --> element to query
+    ## Paginator --> element to click for page integration
+    ## source --> source of data
+    $$ Name --> Names of file given to written files
 */
 
 const Search__Object = {
   data__source: '',
   source__url: '',
-  total__pages: 30,
-  JSON__name: 'New__json',
+  total__pages: 0,
+  JSON__name: '$$Name__json',
   JSON__path: path.resolve(__dirname, './Scrapped__Data/JSON__files'),
-  CSV__name: 'New__csv',
+  CSV__name: '$$Name__csv',
   CSV__path: path.resolve(__dirname, './Scrapped__Data/CSV__files'),
 };
 
@@ -82,15 +83,16 @@ function handleScrape(url, pagesToScrape) {
         while (currentPage < pagesToScrape) {
           let newUrls = await page.evaluate(() => {
             let results = [];
+
             //-->  select main query element
-            let items = document.querySelectorAll(''); //-->  ##selector
+            let items = document.querySelectorAll(`## Selector`);
+
             //-->  loop through items and add to result
             items.forEach((item) => {
-              /*fields here depend on the type of element queried */
               results.push({
                 source: ``, //-->  ##Source
                 /* 
-                Every other attribute you wish to query goes here
+                [-### ELEMENT ATTR ###-]
                */
               });
             });
@@ -101,8 +103,8 @@ function handleScrape(url, pagesToScrape) {
           //-->  puppeteer auto click next button (pagination)
           if (currentPage < pagesToScrape) {
             await Promise.all([
-              await page.click(''), //-->  ##Paginator
-              await page.waitForSelector(''), //-->  ##Selector
+              await page.click(`## Paginator`),
+              await page.waitForSelector(`## selector`),
             ]);
           }
           //-->  increment current page
