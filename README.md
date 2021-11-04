@@ -89,28 +89,21 @@ replace `## Selector` with a selector e.g `div.sc-fKFxtB ivoVis > h3`
 | :triangular_flag_on_post: This means to select all `h3` in any `div` element with the classname of `sc-fKFxtB ivoVis` |
 | --------------------------------------------------------------------------------------------------------------------- |
 
-### Example:
+4. Navigate to the loop that pushes an object to the finl result then enter the values that should be extracted from the element.
+   The attributes are taken from the `item` object
 
-> !dict what is love
+### **Example**
 
-**Definition:**
-
-Baby, dont hurt me~
-Dont hurt me~ no more.
-
-**Example:**
-
-Dude1: Bruh, what is love?
-Dude2: Baby, dont hurt me, dont hurt me- no more!
-Dude1: dafuq?
-
-**Source:** https://www.urbandictionary.com/define.php?term=what%20is%20love
-
----
-
-<sup>Beep boop. I am a bot. If there are any issues, contact my [Master](https://www.reddit.com/message/compose/?to=PositivePlayer1&subject=/u/Wordbook_Bot)</sup>
-
-<sup>Want to make a similar reddit bot? Check out: [GitHub](https://github.com/kylelobo/Reddit-Bot)</sup>
+```
+//-->  loop through items and add to result
+            items.forEach((item) => {
+              results.push({
+                source: `oddFEELING portfolio`, //-->  ##Source
+                url: item.getAttribute('href'),
+                content: item.textContent
+              });
+            });
+```
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 
