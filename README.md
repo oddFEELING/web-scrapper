@@ -27,7 +27,6 @@
 - [Demo / Working](#demo)
 - [How it works](#working)
 - [Usage](#usage)
-- [Getting Started](#getting_started)
 - [Built Using](#built_using)
 - [Contributing](../CONTRIBUTING.md)
 - [Author](#author)
@@ -103,52 +102,46 @@ replace `## Selector` with a selector e.g `div.sc-fKFxtB ivoVis > h3`
             });
 ```
 
-| :triangular_flag_on_post: This gets the `href` of the element and `textCOntent` |
+| :triangular_flag_on_post: This gets the `href` of the element and `textContent` |
 | ------------------------------------------------------------------------------- |
 
 5. If the site that is to be scraped is paginated (makes an API call and renders items into different pages) `Puppeteer` would need to auto click and navigate the page.
    Specify the element to click by setting its selector in the `page.click(## Paginator)`
-   ````
+
+   ```
           //-->  puppeteer auto click next button (pagination)
           if (currentPage < pagesToScrape) {
             await Promise.all([
-              await page.click(`## Paginator`),
+              await page.click(`div.sc-fKFxtB ivoVis > h3`),
               await page.waitForSelector(`## selector`),
             ]);
           }
-          ```
 
-   ````
+   ```
 
-## 🏁 Getting Started <a name = "getting_started"></a>
+   THen set an element to wait for before continuing the scrape process in the `page.waitForSelector( ## selector)`
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
+   ```
+          //-->  puppeteer auto click next button (pagination)
+          if (currentPage < pagesToScrape) {
+            await Promise.all([
+              await page.click(`div.sc-fKFxtB ivoVis > h3`),
+              await page.waitForSelector(`div`),
+            ]);
+          }
 
-### Prerequisites
+   ```
 
-What things you need to install the software and how to install them.
+| :triangular_flag_on_post: This waits for all `divs` to render before continuing |
+| ------------------------------------------------------------------------------- |
 
-```
-Give examples
-```
-
-### Installing
-
-A step by step series of examples that tell you how to get a development env running.
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
+6. **_Your're set!!_**
+   Navigate to your terminal or press `cntrl` + `shift` + `~`
+   then run code using
 
 ```
-until finished
+node scraper.js
 ```
-
-End with an example of getting some data out of the system or using it for a little demo.
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 
