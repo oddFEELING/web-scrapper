@@ -83,14 +83,15 @@ function handleScrape(url, pagesToScrape) {
           let newUrls = await page.evaluate(() => {
             let results = [];
             //-->  select main query element
-            let items = document.querySelectorAll('h2.post-title > a'); //-->  ##selector
+            let items = document.querySelectorAll(''); //-->  ##selector
             //-->  loop through items and add to result
             items.forEach((item) => {
               /*fields here depend on the type of element queried */
               results.push({
                 source: ``, //-->  ##Source
-                url: item.getAttribute('href'),
-                textContent: item.innerText,
+                /* 
+                Every other attribute you wish to query goes here
+               */
               });
             });
             return results;
@@ -100,8 +101,8 @@ function handleScrape(url, pagesToScrape) {
           //-->  puppeteer auto click next button (pagination)
           if (currentPage < pagesToScrape) {
             await Promise.all([
-              await page.click('span.last-page.first-last-pages'), //-->  ##Paginator
-              await page.waitForSelector('a'),
+              await page.click(''), //-->  ##Paginator
+              await page.waitForSelector(''), //-->  ##Selector
             ]);
           }
           //-->  increment current page
